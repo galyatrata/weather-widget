@@ -169,6 +169,7 @@ export default function App() {
     return icons[condition] || "🌡️";
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { fetchWeather(city); }, [city, unit]);
 
   const condition = weather?.weather[0]?.main || "Clouds";
@@ -362,6 +363,33 @@ export default function App() {
             {/* Footer */}
             <div style={{ padding: "8px 20px 16px", color: "rgba(255,255,255,0.3)", fontSize: 10, fontFamily: "'Space Mono', monospace", letterSpacing: 1 }}>
               ОНОВЛЕНО {new Date(weather.dt * 1000).toLocaleTimeString("uk-UA", { hour: "2-digit", minute: "2-digit" })} • OPENWEATHERMAP
+              <div style={{
+                padding: "6px 20px 10px",
+                color: "rgba(255,255,255,0.25)",
+                fontSize: 10,
+                fontFamily: "'Space Mono', monospace",
+                letterSpacing: 1,
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center"
+              }}>
+                <span>WEATHER WIDGET v{import.meta.env.VITE_APP_VERSION}</span>
+                <span style={{
+                  background: import.meta.env.VITE_APP_STATUS === 'Production'
+                    ? "rgba(255,100,100,0.2)"
+                    : "rgba(100,255,150,0.2)",
+                  border: `1px solid ${import.meta.env.VITE_APP_STATUS === 'Production'
+                    ? "rgba(255,100,100,0.4)"
+                    : "rgba(100,255,150,0.4)"}`,
+                  borderRadius: 6,
+                  padding: "2px 8px",
+                  color: import.meta.env.VITE_APP_STATUS === 'Production'
+                    ? "rgba(255,150,150,0.8)"
+                    : "rgba(150,255,180,0.8)",
+                }}>
+                  {import.meta.env.VITE_APP_STATUS || 'Development'}
+                </span>
+              </div>
             </div>
           </div>
         )}

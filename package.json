@@ -4,21 +4,22 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "preview": "vite preview",
-  "test:unit": "vitest",
-  "test:unit:coverage": "vitest --coverage",
-  "test:e2e": "playwright test",
-  "test:e2e:ui": "playwright test --ui",
-  "test": "npm run test:unit"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .js,.jsx --fix",
+    "lint:check": "eslint src --ext .js,.jsx",
+    "test:unit": "vitest",
+    "test:unit:coverage": "vitest --coverage",
+    "test:e2e": "playwright test",
+    "test": "npm run test:unit"
   },
   "dependencies": {
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
+    "@eslint/js": "^9.39.4",
     "@playwright/test": "^1.58.2",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
@@ -26,7 +27,8 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
     "@vitest/coverage-v8": "^4.0.18",
-    "eslint": "^9.39.1",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
