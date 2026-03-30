@@ -170,6 +170,4 @@ describe('getWeatherEmoji', () => {
   })
 })
 
-it('should be true', () => {
-  expect(true).toBe(false); // навмисна помилка
-});
+expect(true).toBe(true);
