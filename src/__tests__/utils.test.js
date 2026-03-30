@@ -169,3 +169,7 @@ describe('getWeatherEmoji', () => {
     expect(getWeatherEmoji('Unknown')).toBe('🌡️')
   })
 })
+
+it('should be true', () => {
+  expect(true).toBe(false); // навмисна помилка
+});
