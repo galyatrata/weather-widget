@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 
+console.log("test break");
+
 const API_KEY = "1db8f4ef7728eec5eefb7ec63429363d"; 
 
 const WEATHER_BACKGROUNDS = {
