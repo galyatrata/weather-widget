@@ -1,7 +1,11 @@
 # 🌤️ Weather Widget — Моніторинг погоди в реальному часі
 
+[![CI/CD Pipeline](https://github.com/galyatrata/weather-widget/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/galyatrata/weather-widget/actions/workflows/ci-cd.yml)
+
 Красивий погодний віджет на React з динамічними фонами
 та 5-денним прогнозом погоди.
+
+🔗 https://weather-widget-nine-dun.vercel.app/
 
 ## Стек технологій
 - React 18 + Vite
