@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback } from "react";
-
 console.log("test break");
+
+import { useState, useEffect, useCallback } from "react";
 
 const API_KEY = "1db8f4ef7728eec5eefb7ec63429363d"; 
 
