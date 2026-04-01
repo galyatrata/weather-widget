@@ -4,7 +4,7 @@ import App from './App.jsx'
 import posthog from 'posthog-js';
 
 posthog.init('phc_qDpWqykcdpSVSAcffGDvwUrDGZA6FiVqG5HujnSWGpRW', {
-  api_host: 'https://us.i.posthog.com',
+  api_host: import.meta.env.VITE_PUBLIC_POSTHOG_HOST,
   ui_host: 'https://us.posthog.com',
   person_profiles: 'always',
   session_recording: {
