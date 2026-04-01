@@ -15,6 +15,13 @@ const WEATHER_BACKGROUNDS = {
   Haze: { day: ["#C9D6FF", "#E2E2E2", "#C9D6FF"], night: ["#2c3e50", "#34495e", "#2c3e50"] },
 };
 
+if (typeof window !== 'undefined') {
+  posthog.init('phc_qDpWqykcdpSVSAcffGDvwUrDGZA6FiVqG5HujnSWGpRW', {
+    api_host: 'https://us.i.posthog.com',
+    person_profiles: 'identified_only',
+  });
+}
+
 const getBackground = (condition, isDay) => {
   const theme = WEATHER_BACKGROUNDS[condition] || WEATHER_BACKGROUNDS["Clouds"];
   const colors = isDay ? theme.day : theme.night;
