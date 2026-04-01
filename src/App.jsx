@@ -1,3 +1,4 @@
+import posthog from 'posthog-js';
 import { useState, useEffect, useCallback } from "react";
 
 const API_KEY = "1db8f4ef7728eec5eefb7ec63429363d"; 
@@ -151,6 +152,19 @@ export default function App() {
       }));
 
       setForecast(forecastArr);
+      posthog.capture('weather_searched', {
+        city: weatherData.name,
+        country: weatherData.sys.country,
+        temperature: Math.round(weatherData.main.temp),
+        weather_condition: weatherData.weather[0].main,
+        unit: unit,
+      });
+      if (forecastArr.length > 0) {
+        posthog.capture('forecast_viewed', {
+          city: weatherData.name,
+          days_count: forecastArr.length,
+        });
+      }
       setAnimate(true);
       setTimeout(() => setAnimate(false), 600);
     } catch (e) {
@@ -241,7 +255,15 @@ export default function App() {
             🔍
           </button>
           <button
-            onClick={() => setUnit(u => u === "metric" ? "imperial" : "metric")}
+            onClick={() => {
+              const newUnit = unit === "metric" ? "imperial" : "metric";
+              setUnit(newUnit);
+              posthog.capture('units_switched', {
+                from: unit,
+                to: newUnit,
+                city: weather?.name,
+              });
+            }}
             style={{
               padding: "12px 14px",
               borderRadius: 14,
