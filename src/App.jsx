@@ -2,7 +2,6 @@ import posthog from 'posthog-js';
 import { useState, useEffect, useCallback } from "react";
 
 const API_KEY = "1db8f4ef7728eec5eefb7ec63429363d"; 
-const POPULAR_CITIES = ["Kyiv", "Lviv", "Odesa", "Kharkiv", "London"];
 
 const WEATHER_BACKGROUNDS = {
   Clear: { day: ["#FF6B35", "#F7931E", "#FFD23F"], night: ["#0F0C29", "#302B63", "#24243e"] },
