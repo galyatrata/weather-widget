@@ -117,6 +117,17 @@ export default function App() {
   const [error, setError] = useState("");
   const [unit, setUnit] = useState("metric");
   const [animate, setAnimate] = useState(false);
+  const [showTopForecastBtn, setShowTopForecastBtn] = useState(false);
+
+  useEffect(() => {
+    posthog.onFeatureFlags(() => {
+      if (posthog.isFeatureEnabled('show-forecast-button-top')) {
+        setShowTopForecastBtn(true);
+      } else {
+        setShowTopForecastBtn(false);
+      }
+    });
+  }, []);
 
   const fetchWeather = useCallback(async (cityName) => {
     if (!cityName.trim()) return;
@@ -287,6 +298,30 @@ export default function App() {
           </div>
         )}
 
+        {/* НОВА КНОПКА ФІЧА-ФЛАГА */}
+        {showTopForecastBtn && (
+          <button 
+            onClick={() => {
+                // Якщо у тебе немає функції setShowForecast, можна просто скролити вниз до прогнозу
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            }}
+            style={{
+              width: "100%",
+              padding: "12px",
+              marginBottom: "16px",
+              borderRadius: "14px",
+              background: "rgba(255,255,255,0.3)",
+              color: "#fff",
+              border: "1px solid rgba(255,255,255,0.4)",
+              cursor: "pointer",
+              fontFamily: "'DM Sans', sans-serif",
+              fontWeight: "bold"
+            }}
+          >
+            Прогноз на 5 днів ↓
+          </button>
+        )}
+        
         {/* Loading */}
         {loading && (
           <div style={{ textAlign: "center", padding: 40, color: "rgba(255,255,255,0.7)", fontSize: 14, letterSpacing: 2, fontFamily: "'Space Mono', monospace" }}>
