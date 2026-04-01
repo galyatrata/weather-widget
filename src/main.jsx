@@ -11,7 +11,6 @@ posthog.init('phc_qDpWqykcdpSVSAcffGDvwUrDGZA6FiVqG5HujnSWGpRW', {
   },
 });
 
-
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
