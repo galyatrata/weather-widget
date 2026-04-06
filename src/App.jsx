@@ -1,5 +1,6 @@
 import posthog from 'posthog-js';
 import { useState, useEffect, useCallback } from "react";
+import * as Sentry from '@sentry/react';
 
 const API_KEY = "1db8f4ef7728eec5eefb7ec63429363d"; 
 
