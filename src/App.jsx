@@ -212,6 +212,15 @@ export default function App() {
 
   const formatTime = (ts) => new Date(ts * 1000).toLocaleTimeString("uk-UA", { hour: "2-digit", minute: "2-digit" });
 
+  const throwTestError = () => {
+    Sentry.addBreadcrumb({
+      message: 'Test error button clicked',
+      category: 'user',
+      level: 'info',
+    });
+    throw new Error('Sentry Test Error: Weather Widget broke!');
+  };
+
   return (
     <div
       style={{
@@ -457,6 +466,16 @@ export default function App() {
           </div>
         )}
       </div>
+      <button
+        onClick={throwTestError}
+        style={{
+          position: 'fixed', bottom: 20, right: 20,
+          padding: '8px 16px', background: 'rgba(255,0,0,0.7)',
+          color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer'
+        }}
+      >
+        💥 Break the world
+      </button>      
     </div>
   );
 }
