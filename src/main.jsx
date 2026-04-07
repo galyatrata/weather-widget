@@ -21,6 +21,10 @@ Sentry.setUser({
   segment: 'student',
 });
 
+Sentry.setTag('project', 'weather-widget');
+Sentry.setTag('university', 'lpnu');
+Sentry.setTag('group', 'PP-33');
+
 posthog.init('phc_qDpWqykcdpSVSAcffGDvwUrDGZA6FiVqG5HujnSWGpRW', {
   api_host: 'https://us.i.posthog.com',
   ui_host: 'https://us.posthog.com',
